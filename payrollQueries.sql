@@ -26,3 +26,8 @@ insert into employee_payroll (name, salary ,start) VALUES
 
 #UC4
 select * from employee_payroll;
+
+#UC5
+select salary from employee_payroll where name = 'BILL';
+select salary from employee_payroll where start between cast('2018-01-03' as date) and date(NOW());
+select * from employee_payroll where start between cast('2018-01-03' as date) and date(NOW());
