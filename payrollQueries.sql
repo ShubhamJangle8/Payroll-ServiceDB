@@ -38,3 +38,13 @@ select * from employee_payroll;
 update employee_payroll set gender = 'F' where name = 'Terisa';
 update employee_payroll set gender = 'M' where name = 'BILL' OR name = 'Charlie';
 select * from employee_payroll;
+describe employee_payroll;
+
+#UC7
+select AVG(salary) from employee_payroll group by gender;
+select gender, AVG(salary) from employee_payroll group by gender;
+select gender, SUM(salary) from employee_payroll group by gender;
+select gender, COUNT(salary) from employee_payroll group by gender;
+select gender, MIN(salary) from employee_payroll group by gender;
+select gender, MaX(salary) from employee_payroll group by gender;
+select gender, MaX(salary) from employee_payroll where gender = 'F' group by gender;
