@@ -31,3 +31,10 @@ select * from employee_payroll;
 select salary from employee_payroll where name = 'BILL';
 select salary from employee_payroll where start between cast('2018-01-03' as date) and date(NOW());
 select * from employee_payroll where start between cast('2018-01-03' as date) and date(NOW());
+
+#UC6
+alter table employee_payroll add gender char(1) after name;
+select * from employee_payroll;
+update employee_payroll set gender = 'F' where name = 'Terisa';
+update employee_payroll set gender = 'M' where name = 'BILL' OR name = 'Charlie';
+select * from employee_payroll;
