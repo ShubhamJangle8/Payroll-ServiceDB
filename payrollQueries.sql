@@ -63,3 +63,8 @@ describe employee_payroll;
     add tax double not null after taxable_pay,
     add net_pay double not null after tax;
     select * from employee_payroll;
+    
+#UC10
+	insert into employee_payroll (name,phone, address, department, gender, basic_pay, deductions, taxable_pay, tax, net_pay, start) values
+	('Terisa', 9999999999, "US", 'Marketing', 'F', 40000000, 50000, 200000, 10000, 200000, '2020-05-21'),
+    ('Terisa', 9999999999, "US", 'Sales', 'F', 40000000, 50000, 200000, 10000, 200000, '2020-05-21');
