@@ -55,3 +55,11 @@ describe employee_payroll;
     add address varchar(100) not null after phone,
     add department varchar(50) not null after address;
     
+#UC9
+	alter table employee_payroll 
+    change column salary basic_pay double,
+    add deductions double not null after basic_pay,
+    add taxable_pay double not null after deductions,
+    add tax double not null after taxable_pay,
+    add net_pay double not null after tax;
+    select * from employee_payroll;
