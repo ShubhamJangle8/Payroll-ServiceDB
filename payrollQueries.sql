@@ -22,7 +22,7 @@ describe employee_Payroll;
 insert into employee_payroll (name, salary ,start) VALUES
 ('BILL', 10000000.00, '2018-01-03'),
 ('Terisa',20000000.00, '2019-01-03'),
-('Charlie',30000000.00, '2020-12-13');
+('Charlie',30000000.00, '2020-1-13');
 
 #UC4
 select * from employee_payroll;
@@ -41,10 +41,17 @@ select * from employee_payroll;
 describe employee_payroll;
 
 #UC7
-select AVG(salary) from employee_payroll group by gender;
-select gender, AVG(salary) from employee_payroll group by gender;
-select gender, SUM(salary) from employee_payroll group by gender;
-select gender, COUNT(salary) from employee_payroll group by gender;
-select gender, MIN(salary) from employee_payroll group by gender;
-select gender, MaX(salary) from employee_payroll group by gender;
-select gender, MaX(salary) from employee_payroll where gender = 'F' group by gender;
+	select AVG(salary) from employee_payroll group by gender;
+	select gender, AVG(salary) from employee_payroll group by gender;
+	select gender, SUM(salary) from employee_payroll group by gender;
+	select gender, COUNT(salary) from employee_payroll group by gender;
+	select gender, MIN(salary) from employee_payroll group by gender;
+	select gender, MaX(salary) from employee_payroll group by gender;
+	select gender, MaX(salary) from employee_payroll where gender = 'F' group by gender;
+    
+#UC8
+	alter table employee_payroll
+    add phone numeric(10) not null after name,
+    add address varchar(100) not null after phone,
+    add department varchar(50) not null after address;
+    
