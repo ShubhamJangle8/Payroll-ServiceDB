@@ -68,3 +68,33 @@ describe employee_payroll;
 	insert into employee_payroll (name,phone, address, department, gender, basic_pay, deductions, taxable_pay, tax, net_pay, start) values
 	('Terisa', 9999999999, "US", 'Marketing', 'F', 40000000, 50000, 200000, 10000, 200000, '2020-05-21'),
     ('Terisa', 9999999999, "US", 'Sales', 'F', 40000000, 50000, 200000, 10000, 200000, '2020-05-21');
+    
+#UC11
+alter table employee_payroll
+rename to employee;
+alter table employee change column id emp_ID int;
+create table employee_department (
+emp_ID int not null,
+departmentName varchar(100) not null,
+foreign key (emp_ID) references employee(emp_ID)
+);
+create table payroll (
+emp_ID int not null,
+basic_pay double not null,
+deductions double not null,
+taxable_pay double not null,
+tax double not null,
+net_pay double not null,
+foreign key (emp_ID) references employee(emp_ID)
+);
+create table phone_numbers (
+emp_ID int not null,
+phone numeric(10) not null,
+foreign key (emp_ID) references employee(emp_ID)
+);
+alter table employee
+drop column basic_pay,
+drop column deductions,
+drop column taxable_pay,
+drop column tax,
+drop column net_pay;
